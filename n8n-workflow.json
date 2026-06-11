@@ -1,0 +1,35 @@
+{
+  "name": "Focus Session Notification",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "focus-session",
+        "httpMethod": "POST"
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "position": [300, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "return items;"
+      },
+      "name": "Process Session",
+      "type": "n8n-nodes-base.code",
+      "position": [600, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Process Session",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
